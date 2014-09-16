@@ -113,14 +113,25 @@ void Phone_Directory::save()
 	@return That person's name or an empty string
 	if not in the directory
 	*/
+//1.7 completed by: Josh Tuttle
 string Phone_Directory::remove_entry(const string& name) // Exercise 1.7: please complete the remove_entry() method - Ed/Kent
 {
+	int index = find(name);
+	if (index != -1){
+
+		for (int i = index; i < size - 1; i++)
+			the_directory[i] = the_directory[i + 1];
+		return name;
+	}
+	else
+	{
+		std::string null = "";
+		return null;
+	}
 
 	// Hint: you can use the code below to shift names down in the directory to remove the selected entry specified by "index"
 	// for (int i = index; i < size - 1; i++)
 		// the_directory[i] = the_directory[i + 1];
-
-	return "";
 }
 
 // Private method implementation
@@ -169,4 +180,33 @@ void Phone_Directory::reallocate()
 	delete[] the_directory;
 	// Set the_directory to point to the new directory.
 	the_directory = new_directory;
+}
+
+//1.6 Completed by: Scott Howland
+
+//Default no-arg constructor
+Phone_Directory::Directory_Entry::Directory_Entry() {}
+
+//Set entry name/number equal to inputted name/number
+Phone_Directory::Directory_Entry::Directory_Entry(std::string name, std::string number) {
+	this->name = name;
+	this->number = number;
+}
+
+//Return entry name
+std::string Phone_Directory::Directory_Entry::get_name() const
+{
+	return name;
+}
+
+//Return entry number
+std::string Phone_Directory::Directory_Entry::get_number() const
+{
+	return number; 
+}
+
+//Change entry number to match user input
+void Phone_Directory::Directory_Entry::set_number(const std::string& new_number)
+{
+	number = new_number;
 }

@@ -56,25 +56,18 @@ private:
 	class Directory_Entry /* Exercise 1.6: Please complete the definition of the Directory_Entry class here. - Ed/Kent */
 	{
 	public:
-		Directory_Entry() {} //default no-arg constructor
-		Directory_Entry(std::string name, std::string number) {} //constructor not implemented
+		Directory_Entry();
+		Directory_Entry(std::string name, std::string number); //constructor not implemented
 
-		std::string get_name() const
-		{
-			return ""; //method not implemented
-		}
+		std::string get_name() const;
 
-		std::string get_number() const
-		{
-			return ""; //method not implemented
-		}
+		std::string get_number() const;
 
-		void set_number(const std::string& new_number)
-		{
-			//method not implemented
-		}
+		void set_number(const std::string& new_number);
 	
 	private:
+		std::string name;
+		std::string number;
 
 	};
 
